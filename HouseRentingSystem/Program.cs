@@ -1,4 +1,7 @@
+using HouseRentingSystem.Core.Contracts;
 using HouseRentingSystem.Core.Repository;
+using HouseRentingSystem.Core.Repository.Common;
+using HouseRentingSystem.Core.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +12,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddScoped<IHouseService, HouseService>();
+builder.Services.AddScoped<IRepository, Repository>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
