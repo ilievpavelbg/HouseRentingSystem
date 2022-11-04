@@ -3,7 +3,7 @@ using HouseRentingSystem.Core.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace HouseRentingSystem.Data
+namespace HouseRentingSystem.Core.Repository
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -23,7 +23,7 @@ namespace HouseRentingSystem.Data
             builder.ApplyConfiguration(new CategoryConfiguration());
             builder.ApplyConfiguration(new HouseConfiguration());
 
-            base.OnModelCreating(builder);  
+            base.OnModelCreating(builder);
         }
     }
 }
